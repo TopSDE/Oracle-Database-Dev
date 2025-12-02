@@ -1,0 +1,7 @@
+# Treat all SQL files as SQL
+*.sql linguist-detectable=true
+*.sql linguist-language=SQL
+
+# Optional: treat text files as text
+*.text linguist-detectable=true
+*.text linguist-language=Text
