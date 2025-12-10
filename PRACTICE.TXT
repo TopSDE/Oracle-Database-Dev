@@ -21,6 +21,28 @@ MILLER          15600
 
 14 rows selected.
 
+SQL> SELECT ENAME, JOB, SAL * 6
+  2  FROM EMP;
+
+ENAME      JOB            SAL*6                                                                     
+---------- --------- ----------                                                                     
+SMITH      CLERK           4800                                                                     
+ALLEN      SALESMAN        9600                                                                     
+WARD       SALESMAN        7500                                                                     
+JONES      MANAGER        17850                                                                     
+MARTIN     SALESMAN        7500                                                                     
+BLAKE      MANAGER        17100                                                                     
+CLARK      MANAGER        14700                                                                     
+SCOTT      ANALYST        18000                                                                     
+KING       PRESIDENT      30000                                                                     
+TURNER     SALESMAN        9000                                                                     
+ADAMS      CLERK           6600                                                                     
+JAMES      CLERK           5700                                                                     
+FORD       ANALYST        18000                                                                     
+MILLER     CLERK           7800                                                                     
+
+14 rows selected.
+
 SQL> -- WAQTD ENAME AND JOB FOR ALL THE EMPLOYEE WITH THEIR HALF TERM SALARY.
 SQL> SELECT ENAME, JOB, SAL * 6
   2  FROM EMP;
@@ -45,7 +67,8 @@ MILLER     CLERK           7800
 14 rows selected.
 
 SQL> -- WAQTD ALL THE DETAILS OF THE EMPLOYEES ALONG WITH AN ANNUALBONUS OF 2000.
-SQL> SELECT EMP.*, (SAL * 12) + 2000 FROM EMP;
+SQL> SELECT EMP.*, (SAL * 12) + 2000
+  2  FROM EMP;
 
      EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO (SAL*12)+2000 
 ---------- ---------- --------- ---------- --------- ---------- ---------- ---------- ------------- 
@@ -67,7 +90,8 @@ SQL> SELECT EMP.*, (SAL * 12) + 2000 FROM EMP;
 14 rows selected.
 
 SQL> -- WAQTD NAME SALARY AND SALARY WITH A HIKE OF 10%.
-SQL> SELECT ENAME, SAL, SAL + (SAL * 10/100) FROM EMP;
+SQL> SELECT ENAME, SAL, SAL + (SAL * 10/100)
+  2  FROM EMP;
 
 ENAME             SAL SAL+(SAL*10/100)                                                              
 ---------- ---------- ----------------                                                              
@@ -89,7 +113,8 @@ MILLER           1300             1430
 14 rows selected.
 
 SQL> -- WAQTD NAME AND SALARY WITH DEDUCTION OF 25%.
-SQL> SELECT ENAME, SAL - (SAL * 25/100) FROM EMP;
+SQL> SELECT ENAME, SAL - ( SAL * 25/100)
+  2  FROM EMP;
 
 ENAME      SAL-(SAL*25/100)                                                                         
 ---------- ----------------                                                                         
@@ -111,30 +136,31 @@ MILLER                  975
 14 rows selected.
 
 SQL> -- WAQTD NAME AND SALARY WITH  MONTHLY HIKE OF 50.
-SQL> SELECT ENAME, SAL + 50
+SQL> SELECT ENAME, SAL + (SAL * 50/100)
   2  FROM EMP;
 
-ENAME          SAL+50                                                                               
----------- ----------                                                                               
-SMITH             850                                                                               
-ALLEN            1650                                                                               
-WARD             1300                                                                               
-JONES            3025                                                                               
-MARTIN           1300                                                                               
-BLAKE            2900                                                                               
-CLARK            2500                                                                               
-SCOTT            3050                                                                               
-KING             5050                                                                               
-TURNER           1550                                                                               
-ADAMS            1150                                                                               
-JAMES            1000                                                                               
-FORD             3050                                                                               
-MILLER           1350                                                                               
+ENAME      SAL+(SAL*50/100)                                                                         
+---------- ----------------                                                                         
+SMITH                  1200                                                                         
+ALLEN                  2400                                                                         
+WARD                   1875                                                                         
+JONES                4462.5                                                                         
+MARTIN                 1875                                                                         
+BLAKE                  4275                                                                         
+CLARK                  3675                                                                         
+SCOTT                  4500                                                                         
+KING                   7500                                                                         
+TURNER                 2250                                                                         
+ADAMS                  1650                                                                         
+JAMES                  1425                                                                         
+FORD                   4500                                                                         
+MILLER                 1950                                                                         
 
 14 rows selected.
 
 SQL> -- WAQTD NAME AND ANNUAL SALARY WITH DEDUCTION OF 10%.
-SQL> SELECT ENAME, (SAL * 12) - (SAL * 12 * 10/100) FROM EMP;
+SQL> SELECT ENAME, (SAL * 12) - (SAL * 12 * 10/100)
+  2  FROM EMP;
 
 ENAME      (SAL*12)-(SAL*12*10/100)                                                                 
 ---------- ------------------------                                                                 
@@ -155,8 +181,31 @@ MILLER                        14040
 
 14 rows selected.
 
-SQL> -- WAQTD TOTAL SALARY GIVEN TO EACH EMPLOYEE (SAL + COMM).
-SQL> SELECT COALESCE(SAL + COMM, 0) FROM EMP;
+SQL> -- WAQTD TOTAL SALARY GIVEN TO EACH EMPLOYEE (SAL+COMM).
+SQL> SELECT SAL + COMM
+  2  FROM EMP;
+
+  SAL+COMM                                                                                          
+----------                                                                                          
+                                                                                                    
+      1900                                                                                          
+      1750                                                                                          
+                                                                                                    
+      2650                                                                                          
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+      1500                                                                                          
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+
+14 rows selected.
+
+SQL> SELECT COALESCE(SAL + COMM,0)
+  2  FROM EMP;
 
 COALESCE(SAL+COMM,0)                                                                                
 --------------------                                                                                
@@ -177,8 +226,21 @@ COALESCE(SAL+COMM,0)
 
 14 rows selected.
 
-SQL> -- WAQTD ALL EMPLOYEE DETAILS ALONG WITH ANNUAL SALARY.
-SQL> SELECT EMP.*, SAL * 12 FROM EMP;
+SQL> -- WAQTD DETAILS OF ALL THE EMPLOYEES ALONG WITH ANNUAL SALARY.
+SQL> SELECT ENAME.*, SAL * 12
+  2  FROM EMP;
+SELECT ENAME.*, SAL * 12
+             *
+ERROR at line 1:
+ORA-00964: table name not in FROM list 
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT EMP.*, SAL * 12
+  2* FROM EMP
+SQL> /
 
      EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO     SAL*12    
 ---------- ---------- --------- ---------- --------- ---------- ---------- ---------- ----------    
@@ -199,8 +261,21 @@ SQL> SELECT EMP.*, SAL * 12 FROM EMP;
 
 14 rows selected.
 
-SQL> -- WAQTD NAME AND DESIGNATION WITH 100 PENALTY IN SALARY.
-SQL> SELECT ENAME, JOB, SAL - 100 FROM EMP;
+SQL> -- WAQTD NAME AND DESIGNATION ALONG WITH 100 PENALTY IN SALARY.
+SQL> SELECT ENMAE, JOB , SAL - 100
+  2  FROM EMP;
+SELECT ENMAE, JOB , SAL - 100
+       *
+ERROR at line 1:
+ORA-00904: "ENMAE": invalid identifier 
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT ENAME, JOB , SAL - 100
+  2* FROM EMP
+SQL> /
 
 ENAME      JOB          SAL-100                                                                     
 ---------- --------- ----------                                                                     
@@ -221,4 +296,4 @@ MILLER     CLERK           1200
 
 14 rows selected.
 
-SQL> SPOOL OFF
+SQL> spool off

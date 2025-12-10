@@ -1,374 +1,206 @@
-SQL> CL SCR
-
-SQL> SELECT ENAME, SAL
+SQL> -- WAQTD NAME OF THE EMPLOYEE ALONG WITH THEIR ANNUAL SALARY.
+SQL> SELECT ENAME, SAL * 12
   2  FROM EMP;
 
-ENAME             SAL                                                           
----------- ----------                                                           
-SMITH             800                                                           
-ALLEN            1600                                                           
-WARD             1250                                                           
-JONES            2975                                                           
-MARTIN           1250                                                           
-BLAKE            2850                                                           
-CLARK            2450                                                           
-SCOTT            3000                                                           
-KING             5000                                                           
-TURNER           1500                                                           
-ADAMS            1100                                                           
-
-ENAME             SAL                                                           
----------- ----------                                                           
-JAMES             950                                                           
-FORD             3000                                                           
-MILLER           1300                                                           
-
-14 rows selected.
-
-SQL> SELECT *
-  2  FROM EMP;
-
-     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
----------- ---------- --------- ---------- --------- ---------- ----------      
-    DEPTNO                                                                      
-----------                                                                      
-      7369 SMITH      CLERK           7902 17-DEC-80        800                 
-        20                                                                      
-                                                                                
-      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300      
-        30                                                                      
-                                                                                
-      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500      
-        30                                                                      
-                                                                                
-
-     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
----------- ---------- --------- ---------- --------- ---------- ----------      
-    DEPTNO                                                                      
-----------                                                                      
-      7566 JONES      MANAGER         7839 02-APR-81       2975                 
-        20                                                                      
-                                                                                
-      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400      
-        30                                                                      
-                                                                                
-      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                 
-        30                                                                      
-                                                                                
-
-     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
----------- ---------- --------- ---------- --------- ---------- ----------      
-    DEPTNO                                                                      
-----------                                                                      
-      7782 CLARK      MANAGER         7839 09-JUN-81       2450                 
-        10                                                                      
-                                                                                
-      7788 SCOTT      ANALYST         7566 19-APR-87       3000                 
-        20                                                                      
-                                                                                
-      7839 KING       PRESIDENT            17-NOV-81       5000                 
-        10                                                                      
-                                                                                
-
-     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
----------- ---------- --------- ---------- --------- ---------- ----------      
-    DEPTNO                                                                      
-----------                                                                      
-      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0      
-        30                                                                      
-                                                                                
-      7876 ADAMS      CLERK           7788 23-MAY-87       1100                 
-        20                                                                      
-                                                                                
-      7900 JAMES      CLERK           7698 03-DEC-81        950                 
-        30                                                                      
-                                                                                
-
-     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
----------- ---------- --------- ---------- --------- ---------- ----------      
-    DEPTNO                                                                      
-----------                                                                      
-      7902 FORD       ANALYST         7566 03-DEC-81       3000                 
-        20                                                                      
-                                                                                
-      7934 MILLER     CLERK           7782 23-JAN-82       1300                 
-        10                                                                      
-                                                                                
-
-14 rows selected.
-
-SQL> SET PAGES 100 LINES 100
-SQL> SELECT *
-  2  FROM EMP;
-
-     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
----------- ---------- --------- ---------- --------- ---------- ---------- ----------               
-      7369 SMITH      CLERK           7902 17-DEC-80        800                    20               
-      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30               
-      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30               
-      7566 JONES      MANAGER         7839 02-APR-81       2975                    20               
-      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30               
-      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30               
-      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10               
-      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20               
-      7839 KING       PRESIDENT            17-NOV-81       5000                    10               
-      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30               
-      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20               
-      7900 JAMES      CLERK           7698 03-DEC-81        950                    30               
-      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20               
-      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10               
-
-14 rows selected.
-
-SQL> SELECT ENAME, 6 * SAL
-  2  FROM EMP
-  3  ;
-
-ENAME           6*SAL                                                                               
+ENAME          SAL*12                                                                               
 ---------- ----------                                                                               
-SMITH            4800                                                                               
-ALLEN            9600                                                                               
-WARD             7500                                                                               
-JONES           17850                                                                               
-MARTIN           7500                                                                               
-BLAKE           17100                                                                               
-CLARK           14700                                                                               
-SCOTT           18000                                                                               
-KING            30000                                                                               
-TURNER           9000                                                                               
-ADAMS            6600                                                                               
-JAMES            5700                                                                               
-FORD            18000                                                                               
-MILLER           7800                                                                               
+SMITH            9600                                                                               
+ALLEN           19200                                                                               
+WARD            15000                                                                               
+JONES           35700                                                                               
+MARTIN          15000                                                                               
+BLAKE           34200                                                                               
+CLARK           29400                                                                               
+SCOTT           36000                                                                               
+KING            60000                                                                               
+TURNER          18000                                                                               
+ADAMS           13200                                                                               
+JAMES           11400                                                                               
+FORD            36000                                                                               
+MILLER          15600                                                                               
 
 14 rows selected.
 
-SQL> SELECT EMP.*, 2000 + SAL
-  2  FROM EMP
-  3  ;
-
-     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO   2000+SAL    
----------- ---------- --------- ---------- --------- ---------- ---------- ---------- ----------    
-      7369 SMITH      CLERK           7902 17-DEC-80        800                    20       2800    
-      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30       3600    
-      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30       3250    
-      7566 JONES      MANAGER         7839 02-APR-81       2975                    20       4975    
-      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30       3250    
-      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30       4850    
-      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10       4450    
-      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20       5000    
-      7839 KING       PRESIDENT            17-NOV-81       5000                    10       7000    
-      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30       3500    
-      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20       3100    
-      7900 JAMES      CLERK           7698 03-DEC-81        950                    30       2950    
-      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20       5000    
-      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10       3300    
-
-14 rows selected.
-
-SQL> SELECT ENAME, SAL, SAL * (0.1)
+SQL> -- WAQTD ENAME AND JOB FOR ALL THE EMPLOYEE WITH THEIR HALF TERM SALARY.
+SQL> SELECT ENAME, JOB, SAL * 6
   2  FROM EMP;
 
-ENAME             SAL  SAL*(0.1)                                                                    
----------- ---------- ----------                                                                    
-SMITH             800         80                                                                    
-ALLEN            1600        160                                                                    
-WARD             1250        125                                                                    
-JONES            2975      297.5                                                                    
-MARTIN           1250        125                                                                    
-BLAKE            2850        285                                                                    
-CLARK            2450        245                                                                    
-SCOTT            3000        300                                                                    
-KING             5000        500                                                                    
-TURNER           1500        150                                                                    
-ADAMS            1100        110                                                                    
-JAMES             950         95                                                                    
-FORD             3000        300                                                                    
-MILLER           1300        130                                                                    
+ENAME      JOB            SAL*6                                                                     
+---------- --------- ----------                                                                     
+SMITH      CLERK           4800                                                                     
+ALLEN      SALESMAN        9600                                                                     
+WARD       SALESMAN        7500                                                                     
+JONES      MANAGER        17850                                                                     
+MARTIN     SALESMAN        7500                                                                     
+BLAKE      MANAGER        17100                                                                     
+CLARK      MANAGER        14700                                                                     
+SCOTT      ANALYST        18000                                                                     
+KING       PRESIDENT      30000                                                                     
+TURNER     SALESMAN        9000                                                                     
+ADAMS      CLERK           6600                                                                     
+JAMES      CLERK           5700                                                                     
+FORD       ANALYST        18000                                                                     
+MILLER     CLERK           7800                                                                     
 
 14 rows selected.
 
-SQL> SELECT ENAME, SAL, SAL * (1.1)
+SQL> -- WAQTD ALL THE DETAILS OF THE EMPLOYEES ALONG WITH AN ANNUALBONUS OF 2000.
+SQL> SELECT EMP.*, (SAL * 12) + 2000 FROM EMP;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO (SAL*12)+2000 
+---------- ---------- --------- ---------- --------- ---------- ---------- ---------- ------------- 
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20         11600 
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30         21200 
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30         17000 
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20         37700 
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30         17000 
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30         36200 
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10         31400 
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20         38000 
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10         62000 
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30         20000 
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20         15200 
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30         13400 
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20         38000 
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10         17600 
+
+14 rows selected.
+
+SQL> -- WAQTD NAME SALARY AND SALARY WITH A HIKE OF 10%.
+SQL> SELECT ENAME, SAL, SAL + (SAL * 10/100) FROM EMP;
+
+ENAME             SAL SAL+(SAL*10/100)                                                              
+---------- ---------- ----------------                                                              
+SMITH             800              880                                                              
+ALLEN            1600             1760                                                              
+WARD             1250             1375                                                              
+JONES            2975           3272.5                                                              
+MARTIN           1250             1375                                                              
+BLAKE            2850             3135                                                              
+CLARK            2450             2695                                                              
+SCOTT            3000             3300                                                              
+KING             5000             5500                                                              
+TURNER           1500             1650                                                              
+ADAMS            1100             1210                                                              
+JAMES             950             1045                                                              
+FORD             3000             3300                                                              
+MILLER           1300             1430                                                              
+
+14 rows selected.
+
+SQL> -- WAQTD NAME AND SALARY WITH DEDUCTION OF 25%.
+SQL> SELECT ENAME, SAL - (SAL * 25/100) FROM EMP;
+
+ENAME      SAL-(SAL*25/100)                                                                         
+---------- ----------------                                                                         
+SMITH                   600                                                                         
+ALLEN                  1200                                                                         
+WARD                  937.5                                                                         
+JONES               2231.25                                                                         
+MARTIN                937.5                                                                         
+BLAKE                2137.5                                                                         
+CLARK                1837.5                                                                         
+SCOTT                  2250                                                                         
+KING                   3750                                                                         
+TURNER                 1125                                                                         
+ADAMS                   825                                                                         
+JAMES                 712.5                                                                         
+FORD                   2250                                                                         
+MILLER                  975                                                                         
+
+14 rows selected.
+
+SQL> -- WAQTD NAME AND SALARY WITH  MONTHLY HIKE OF 50.
+SQL> SELECT ENAME, SAL + 50
   2  FROM EMP;
 
-ENAME             SAL  SAL*(1.1)                                                                    
----------- ---------- ----------                                                                    
-SMITH             800        880                                                                    
-ALLEN            1600       1760                                                                    
-WARD             1250       1375                                                                    
-JONES            2975     3272.5                                                                    
-MARTIN           1250       1375                                                                    
-BLAKE            2850       3135                                                                    
-CLARK            2450       2695                                                                    
-SCOTT            3000       3300                                                                    
-KING             5000       5500                                                                    
-TURNER           1500       1650                                                                    
-ADAMS            1100       1210                                                                    
-JAMES             950       1045                                                                    
-FORD             3000       3300                                                                    
-MILLER           1300       1430                                                                    
+ENAME          SAL+50                                                                               
+---------- ----------                                                                               
+SMITH             850                                                                               
+ALLEN            1650                                                                               
+WARD             1300                                                                               
+JONES            3025                                                                               
+MARTIN           1300                                                                               
+BLAKE            2900                                                                               
+CLARK            2500                                                                               
+SCOTT            3050                                                                               
+KING             5050                                                                               
+TURNER           1550                                                                               
+ADAMS            1150                                                                               
+JAMES            1000                                                                               
+FORD             3050                                                                               
+MILLER           1350                                                                               
 
 14 rows selected.
 
-SQL> SELECT ENAME, SAL - (25/100)
-  2  FROM EMP;
+SQL> -- WAQTD NAME AND ANNUAL SALARY WITH DEDUCTION OF 10%.
+SQL> SELECT ENAME, (SAL * 12) - (SAL * 12 * 10/100) FROM EMP;
 
-ENAME      SAL-(25/100)                                                                             
----------- ------------                                                                             
-SMITH            799.75                                                                             
-ALLEN           1599.75                                                                             
-WARD            1249.75                                                                             
-JONES           2974.75                                                                             
-MARTIN          1249.75                                                                             
-BLAKE           2849.75                                                                             
-CLARK           2449.75                                                                             
-SCOTT           2999.75                                                                             
-KING            4999.75                                                                             
-TURNER          1499.75                                                                             
-ADAMS           1099.75                                                                             
-JAMES            949.75                                                                             
-FORD            2999.75                                                                             
-MILLER          1299.75                                                                             
-
-14 rows selected.
-
-SQL> SELECT ENAME, SAL - (SAL * (25/100))
-  2  FROM EMP;
-
-ENAME      SAL-(SAL*(25/100))                                                                       
----------- ------------------                                                                       
-SMITH                     600                                                                       
-ALLEN                    1200                                                                       
-WARD                    937.5                                                                       
-JONES                 2231.25                                                                       
-MARTIN                  937.5                                                                       
-BLAKE                  2137.5                                                                       
-CLARK                  1837.5                                                                       
-SCOTT                    2250                                                                       
-KING                     3750                                                                       
-TURNER                   1125                                                                       
-ADAMS                     825                                                                       
-JAMES                   712.5                                                                       
-FORD                     2250                                                                       
-MILLER                    975                                                                       
+ENAME      (SAL*12)-(SAL*12*10/100)                                                                 
+---------- ------------------------                                                                 
+SMITH                          8640                                                                 
+ALLEN                         17280                                                                 
+WARD                          13500                                                                 
+JONES                         32130                                                                 
+MARTIN                        13500                                                                 
+BLAKE                         30780                                                                 
+CLARK                         26460                                                                 
+SCOTT                         32400                                                                 
+KING                          54000                                                                 
+TURNER                        16200                                                                 
+ADAMS                         11880                                                                 
+JAMES                         10260                                                                 
+FORD                          32400                                                                 
+MILLER                        14040                                                                 
 
 14 rows selected.
 
-SQL> SELECT ENAME, SAL, SAL + 50
-  2  FROM EMP;
+SQL> -- WAQTD TOTAL SALARY GIVEN TO EACH EMPLOYEE (SAL + COMM).
+SQL> SELECT COALESCE(SAL + COMM, 0) FROM EMP;
 
-ENAME             SAL     SAL+50                                                                    
----------- ---------- ----------                                                                    
-SMITH             800        850                                                                    
-ALLEN            1600       1650                                                                    
-WARD             1250       1300                                                                    
-JONES            2975       3025                                                                    
-MARTIN           1250       1300                                                                    
-BLAKE            2850       2900                                                                    
-CLARK            2450       2500                                                                    
-SCOTT            3000       3050                                                                    
-KING             5000       5050                                                                    
-TURNER           1500       1550                                                                    
-ADAMS            1100       1150                                                                    
-JAMES             950       1000                                                                    
-FORD             3000       3050                                                                    
-MILLER           1300       1350                                                                    
-
-14 rows selected.
-
-SQL> SELECT ENAME, SAL - (SAL * 0.1)
-  2  FROM EMP
-  3  ;
-
-ENAME      SAL-(SAL*0.1)                                                                            
----------- -------------                                                                            
-SMITH                720                                                                            
-ALLEN               1440                                                                            
-WARD                1125                                                                            
-JONES             2677.5                                                                            
-MARTIN              1125                                                                            
-BLAKE               2565                                                                            
-CLARK               2205                                                                            
-SCOTT               2700                                                                            
-KING                4500                                                                            
-TURNER              1350                                                                            
-ADAMS                990                                                                            
-JAMES                855                                                                            
-FORD                2700                                                                            
-MILLER              1170                                                                            
-
-14 rows selected.
-
-SQL> SELECT SAL + COMM
-  2  FROM EMP
-  3  ;
-
-  SAL+COMM                                                                                          
-----------                                                                                          
-                                                                                                    
-      1900                                                                                          
-      1750                                                                                          
-                                                                                                    
-      2650                                                                                          
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-      1500                                                                                          
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-
-14 rows selected.
-
-SQL> SELECT SAL + COALESCE(COMM, 0)
-  2  FROM EMP;
-
-SAL+COALESCE(COMM,0)                                                                                
+COALESCE(SAL+COMM,0)                                                                                
 --------------------                                                                                
-                 800                                                                                
+                   0                                                                                
                 1900                                                                                
                 1750                                                                                
-                2975                                                                                
+                   0                                                                                
                 2650                                                                                
-                2850                                                                                
-                2450                                                                                
-                3000                                                                                
-                5000                                                                                
+                   0                                                                                
+                   0                                                                                
+                   0                                                                                
+                   0                                                                                
                 1500                                                                                
-                1100                                                                                
-                 950                                                                                
-                3000                                                                                
-                1300                                                                                
+                   0                                                                                
+                   0                                                                                
+                   0                                                                                
+                   0                                                                                
 
 14 rows selected.
 
-SQL> SELECT *
-  2  FROM EMP;
+SQL> -- WAQTD ALL EMPLOYEE DETAILS ALONG WITH ANNUAL SALARY.
+SQL> SELECT EMP.*, SAL * 12 FROM EMP;
 
-     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
----------- ---------- --------- ---------- --------- ---------- ---------- ----------               
-      7369 SMITH      CLERK           7902 17-DEC-80        800                    20               
-      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30               
-      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30               
-      7566 JONES      MANAGER         7839 02-APR-81       2975                    20               
-      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30               
-      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30               
-      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10               
-      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20               
-      7839 KING       PRESIDENT            17-NOV-81       5000                    10               
-      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30               
-      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20               
-      7900 JAMES      CLERK           7698 03-DEC-81        950                    30               
-      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20               
-      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10               
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO     SAL*12    
+---------- ---------- --------- ---------- --------- ---------- ---------- ---------- ----------    
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20       9600    
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30      19200    
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30      15000    
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20      35700    
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30      15000    
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30      34200    
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10      29400    
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20      36000    
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10      60000    
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30      18000    
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20      13200    
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30      11400    
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20      36000    
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10      15600    
 
 14 rows selected.
 
-SQL> SELECT ENAME, JOB, SAL - 100
-  2  FROM EMP
-  3  ;
+SQL> -- WAQTD NAME AND DESIGNATION WITH 100 PENALTY IN SALARY.
+SQL> SELECT ENAME, JOB, SAL - 100 FROM EMP;
 
 ENAME      JOB          SAL-100                                                                     
 ---------- --------- ----------                                                                     
