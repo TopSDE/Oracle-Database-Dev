@@ -3,16 +3,6 @@ SQL> SELECT *
   2  FROM EMP
   3  WHERE JOB = 'CLERK'
   4  AND SAL < 1500;
-SP2-0640: Not connected
-SQL> CONN
-Enter user-name: SCOTT/tiger
-Connected.
-SQL> SET PAGES 100 LINES 100
-SQL> -- 1.WAQTD DETAILS OF THE EMPLOYEES WORKING AS CLERK AND EARNING LESS THAN1500.
-SQL> SELECT *
-  2  FROM EMP
-  3  WHERE JOB = 'CLERK'
-  4  AND SAL < 1500;
 
      EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
 ---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
@@ -25,8 +15,7 @@ SQL> -- 2.WAQTD NAME AND HIREDATE OF THE EMPLOYEES WORKING AS MANAGER IN DEPT 30
 SQL> SELECT ENAME, HIREDATE
   2  FROM EMP
   3  WHERE DEPTNO = 30
-  4  AND JOB = 'MANAGER'
-  5  ;
+  4  AND JOB = 'MANAGER';
 
 ENAME      HIREDATE                                                                                 
 ---------- ---------                                                                                
@@ -50,8 +39,7 @@ SQL> -- 4.WAQTD ALL THE DETAILS OF THE EMP WORKING IN DEPT 30 OR AS ANALYST.
 SQL> SELECT *
   2  FROM EMP
   3  WHERE DEPTNO = 30
-  4  OR JOB = 'ANALYST'
-  5  ;
+  4  OR JOB = 'ANALYST';
 
      EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
 ---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
@@ -66,26 +54,24 @@ SQL> SELECT *
 
 8 rows selected.
 
-SQL> 5.WAQTD NAMES OF THE EMPMLOYEES WHOSE SALARY IS LESS THAN 1100 AND THEIR DESIGNATION IS CLERK.
-SP2-0734: unknown command beginning "5.WAQTD NA..." - rest of line ignored.
 SQL> -- 5.WAQTD NAMES OF THE EMPMLOYEES WHOSE SALARY IS LESS THAN 1100 AND THEIR DESIGNATION IS CLERK.
 SQL> SELECT ENAME
   2  FROM EMP
-  3  WHERE SAL < 1100 AND
-  4  JOB = 'CLERK'
-  5  ;
+  3  WHERE SAL < 1100
+  4  AND JOB = 'CLERK';
 
 ENAME                                                                                               
 ----------                                                                                          
 SMITH                                                                                               
 JAMES                                                                                               
 
+SQL> 
 SQL> -- 6.WAQTD NAME AND SAL , ANNUAL SAL AND DEPTNO IF DEPTNO IS 20 EARNING MORE THAN 1100 AND ANNUAL SALARY EXCEEDS 12000.
 SQL> SELECT ENAME, SAL, SAL*12, DEPTNO
   2  FROM EMP
-  3  WHERE DEPTNO = 20 AND
-  4  SAL > 1100 AND
-  5  SAL * 12 > 12000;
+  3  WHERE DEPTNO = 20
+  4  AND SAL > 1100
+  5  AND SAL * 12 > 12000;
 
 ENAME             SAL     SAL*12     DEPTNO                                                         
 ---------- ---------- ---------- ----------                                                         
@@ -106,8 +92,8 @@ SQL> SELECT EMPNO, ENAME
 SQL> -- 8.WAQTD DETAILS OF EMPLOYEES WORKING IN DEPT 20 OR 30.
 SQL> SELECT *
   2  FROM EMP
-  3  WHERE DEPTNO = 20 OR
-  4  DEPTNO = 30;
+  3  WHERE DEPTNO = 20
+  4  OR DEPTNO = 30;
 
      EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
 ---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
@@ -133,10 +119,11 @@ SQL> SELECT *
 
 no rows selected
 
-SQL> -- WAQTD DETAILS OF EMPLOYEE WORKING AS PRESIDENT WITH SALARY OF         RUPEES 4000.
-SQL> SELECT * FROM EMP
-  2  WHERE JOB = 'PRESIDENT'
-  3  AND SAL = 4000;
+SQL> -- 10.-- WAQTD DETAILS OF EMPLOYEE WORKING AS PRESIDENT WITH SALARY OF         RUPEES 4000.
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE JOB = 'PRESIDENT'
+  4  AND SAL = 4000;
 
 no rows selected
 
@@ -144,46 +131,40 @@ SQL> -- 11. WAQTD NAMES AND DEPTNO , JOB OF EMPS WORKING AS CLERK IN DEPT 10 OR 
 SQL> SELECT ENAME, DEPTNO, JOB
   2  FROM EMP
   3  WHERE JOB = 'CLERK'
-  4  AND DEPTNO = 10
-  5  OR DEPTNO = 20;
+  4  AND (DEPTNO = 10 OR DEPTNO = 20);
 
 ENAME          DEPTNO JOB                                                                           
 ---------- ---------- ---------                                                                     
 SMITH              20 CLERK                                                                         
-JONES              20 MANAGER                                                                       
-SCOTT              20 ANALYST                                                                       
 ADAMS              20 CLERK                                                                         
-FORD               20 ANALYST                                                                       
 MILLER             10 CLERK                                                                         
-
-6 rows selected.
 
 SQL> -- 12. WAQTD DETAILS OF EMPLOYEES WORKING AS CLERK OR MANAGER IN DEPT          10.
 SQL> SELECT *
   2  FROM EMP
-  3  WHERE JOB = 'CLERK' OR
-  4  JOB = 'MANAGER'AND
-  5  DEPTNO = 10
-  6  ;
+  3  WHERE (JOB = 'CLERK' OR JOB = 'MANAGER')
+  4  AND DEPTNO = 10;
 
      EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
 ---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
-      7369 SMITH      CLERK           7902 17-DEC-80        800                    20               
       7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10               
-      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20               
-      7900 JAMES      CLERK           7698 03-DEC-81        950                    30               
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10               
+
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE DEPTNO = 10
+  4  AND JOB IN ('CLERK' , 'MANAGER')
+  5  ;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10               
       7934 MILLER     CLERK           7782 23-JAN-82       1300                    10               
 
 SQL> -- 13. WAQTD NAMES OF EMPLOYEES WORKING IN DEPT 10 , 20 , 30 , 40.
 SQL> SELECT ENAME
   2  FROM EMP
-  3  WHERE DEPTNO = 10 OR
-  4  
-SQL> -- 13. WAQTD NAMES OF EMPLOYEES WORKING IN DEPT 10 , 20 , 30 , 40.
-SQL> SELECT ENAME
-  2  FROM EMP
-  3  WHERE DEPTNO IN (10,20,30,40)
-  4  ;
+  3  WHERE DEPTNO IN (10, 20, 30, 40);
 
 ENAME                                                                                               
 ----------                                                                                          
@@ -214,11 +195,10 @@ SQL> SELECT *
       7839 KING       PRESIDENT            17-NOV-81       5000                    10               
       7902 FORD       ANALYST         7566 03-DEC-81       3000                    20               
 
-SQL> --   15. WAQTD DETAILS OF EMPLOYEES WORKING AS MANAGER OR SALESMAN OR      CLERK.
+SQL> -- 15. WAQTD DETAILS OF EMPLOYEES WORKING AS MANAGER OR SALESMAN OR      CLERK.
 SQL> SELECT *
   2  FROM EMP
-  3  WHERE JOB IN ('MANAGER', 'SALESMAN', 'CLERK')
-  4  ;
+  3  WHERE JOB IN ('MANAGER', 'SALESMAN', 'CLERK');
 
      EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
 ---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
@@ -238,38 +218,18 @@ SQL> SELECT *
 
 SQL> -- 16. WAQTD NAMES OF EMPLOYEES HIRED AFTER 81 AND BEFORE 87.
 SQL> SELECT ENAME
-  2  FROME MP
-  3  WHERE HIREDATE > '31-DEC-81'
-  4  AND HIREDATE < '01-JAN-87'
-  5  ;
-FROME MP
-      *
-ERROR at line 2:
-ORA-00923: FROM keyword not found where expected 
-
-
-SQL> ED
-Wrote file afiedt.buf
-
-  1  SELECT ENAME
-  2  FROME EMP
-  3  WHERE HIREDATE > '31-DEC-81'
-  4* AND HIREDATE < '01-JAN-87'
-  5  /
-FROME EMP
-      *
-ERROR at line 2:
-ORA-00923: FROM keyword not found where expected 
-
-
-SQL> ED
-Wrote file afiedt.buf
-
-  1  SELECT ENAME
   2  FROM EMP
   3  WHERE HIREDATE > '31-DEC-81'
-  4* AND HIREDATE < '01-JAN-87'
-SQL> /
+  4  AND HIREDATE < '01-JAN-87';
+
+ENAME                                                                                               
+----------                                                                                          
+MILLER                                                                                              
+
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE HIREDATE > TO_DATE('31-DEC-1981', 'DD-MON-YYYY')
+  4  AND HIREDATE < TO_DATE('01-JAN-1987', 'DD-MON-YYYY');
 
 ENAME                                                                                               
 ----------                                                                                          
@@ -294,7 +254,7 @@ SQL> SELECT *
 SQL> --  18. WAQTD NAMES OF EMPLOYEES HIRED AFTER 81 INTO DEPT 10 OR 30.
 SQL> SELECT ENAME
   2  FROM EMP
-  3  WHERE HIREDATE > '31-DEC-81'
+  3  WHERE HIREDATE > TO_DATE('31-12-1981', 'DD-MM-YYYY')
   4  AND DEPTNO IN (10, 30);
 
 ENAME                                                                                               
@@ -302,49 +262,34 @@ ENAME
 MILLER                                                                                              
 
 SQL> -- 19. WAQTD NAMES OF EMPLOYEES ALONG WITH ANNUAL SALARY FOR THE EMPLOYEES WORKING AS MANAGER OR CLERK INTO DEPT 10 OR 30.
-SQL> SELECT ENAME, SAL * 12
+SQL> SELECT ENAME, SAL * 12 AS ANNUAL_SALARY
   2  FROM EMP
   3  WHERE JOB IN ('MANAGER', 'CLERK')
-  4  AND DEPTNO IN (10, 30)
-  5  ;
+  4  AND DEPTNO IN (10, 30);
 
-ENAME          SAL*12                                                                               
----------- ----------                                                                               
-BLAKE           34200                                                                               
-CLARK           29400                                                                               
-JAMES           11400                                                                               
-MILLER          15600                                                                               
+ENAME      ANNUAL_SALARY                                                                            
+---------- -------------                                                                            
+BLAKE              34200                                                                            
+CLARK              29400                                                                            
+JAMES              11400                                                                            
+MILLER             15600                                                                            
 
-SQL> -- 20. WAQTD ALL THE DETAILS ALONG WITH ANNUAL SALARY IF SAL IS BETWEEN 1000 AND 4000 ANNUAL SALARY MORE THAN 15000.
-SQL> SELECT EMP.*, SAL * 12
-  2  FROM EMP
-  3  WHERE SAL IS BETWEEN 1000 AND 4000
-  4  AND SAL * 12 > 15000;
-WHERE SAL IS BETWEEN 1000 AND 4000
-             *
-ERROR at line 3:
-ORA-00908: missing NULL keyword 
-
-
-SQL> ED
-Wrote file afiedt.buf
-
-  1  SELECT EMP.*, SAL * 12
+SQL> -- 20. WAQTD ALL DETAILS + ANNUAL SALARY WHERE SAL BETWEEN 1000 AND 4000 AND ANNUAL SALARY > 15000
+SQL> SELECT EMP.*, SAL * 12 AS ANNUAL_SALARY
   2  FROM EMP
   3  WHERE SAL BETWEEN 1000 AND 4000
-  4* AND SAL * 12 > 15000
-SQL> /
+  4  AND SAL * 12 > 15000;
 
-     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO     SAL*12    
----------- ---------- --------- ---------- --------- ---------- ---------- ---------- ----------    
-      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30      19200    
-      7566 JONES      MANAGER         7839 02-APR-81       2975                    20      35700    
-      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30      34200    
-      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10      29400    
-      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20      36000    
-      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30      18000    
-      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20      36000    
-      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10      15600    
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO ANNUAL_SALARY 
+---------- ---------- --------- ---------- --------- ---------- ---------- ---------- ------------- 
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30         19200 
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20         35700 
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30         34200 
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10         29400 
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20         36000 
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30         18000 
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20         36000 
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10         15600 
 
 8 rows selected.
 
