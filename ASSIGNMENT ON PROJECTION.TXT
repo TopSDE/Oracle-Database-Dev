@@ -1,5 +1,4 @@
-SQL> -- 1.1.WAQTD ALL THE DETAILS FROM THE EMPLOYEE TABLE.
-SQL> -- 1.WAQTD ALL THE DETAILS FROM THE EMPLOYEE TABLE.
+SQL> -- 1. WAQTD all the details from the EMPLOYEE table
 SQL> SELECT *
   2  FROM EMP;
 
@@ -22,7 +21,7 @@ SQL> SELECT *
 
 14 rows selected.
 
-SQL> -- 2.WAQTD NAMES OF ALL THE EMPLOYEES.
+SQL> -- 2. WAQTD names of all the employees
 SQL> SELECT ENAME
   2  FROM EMP;
 
@@ -45,7 +44,7 @@ MILLER
 
 14 rows selected.
 
-SQL> -- 3.WAQTD NAME AND SALARY GIVEN TO ALL THE EMPLOYEES.
+SQL> -- 3. WAQTD name and salary given to all the employees
 SQL> SELECT ENAME, SAL
   2  FROM EMP;
 
@@ -68,7 +67,7 @@ MILLER           1300
 
 14 rows selected.
 
-SQL> -- 4.WAQTD NAME AND COMMISSION GIVEN TO ALL THE EMPLOYEES.
+SQL> -- 4. WAQTD name and commission given to all the employees
 SQL> SELECT ENAME, COMM
   2  FROM EMP;
 
@@ -91,7 +90,7 @@ MILLER
 
 14 rows selected.
 
-SQL> -- 5.WAQTD EMPLOYEE ID AND DEPARTMENT NUMBER OF ALL THE EMPLOYEES IN EMP TABLE.
+SQL> -- 5. WAQTD Employee ID and department number
 SQL> SELECT EMPNO, DEPTNO
   2  FROM EMP;
 
@@ -114,7 +113,7 @@ SQL> SELECT EMPNO, DEPTNO
 
 14 rows selected.
 
-SQL> -- 6.WAQTD ENAME AND HIREDATE OF ALL THE EMPLOYEES.
+SQL> -- 6. WAQTD ENAME and HIREDATE of all employees
 SQL> SELECT ENAME, HIREDATE
   2  FROM EMP;
 
@@ -137,7 +136,7 @@ MILLER     23-JAN-82
 
 14 rows selected.
 
-SQL> -- 7.WAQTD NAME AND DESIGNATION OF ALL THE EMPLPOYEES.
+SQL> -- 7. WAQTD name and designation of all the employees
 SQL> SELECT ENAME, JOB
   2  FROM EMP;
 
@@ -160,7 +159,7 @@ MILLER     CLERK
 
 14 rows selected.
 
-SQL> -- 8.WAQTD NAME, JOB AND SALARY GIVEN ALL THE EMPLOYEES.
+SQL> -- 8. WAQTD name, job and salary of all employees
 SQL> SELECT ENAME, JOB, SAL
   2  FROM EMP;
 
@@ -183,7 +182,7 @@ MILLER     CLERK           1300
 
 14 rows selected.
 
-SQL> -- 9.WAQTD DNAMES PRESENT IN DEPARTMENT TABLE.
+SQL> -- 9. WAQTD DNAMES present in DEPT table
 SQL> SELECT DNAME
   2  FROM DEPT;
 
@@ -194,7 +193,9 @@ RESEARCH
 SALES                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 OPERATIONS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
 
-SQL> -- 10.WAQTD DNAME AND LOCATION PRESENT IN DEPT TABLE.
+SQL> 10. WAQTD DNAME and location present in DEPT table
+SP2-0734: unknown command beginning "10. WAQTD ..." - rest of line ignored.
+SQL> -- 10. WAQTD DNAME and location present in DEPT table
 SQL> SELECT DNAME, LOC
   2  FROM DEPT;
 
